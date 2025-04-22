@@ -6,6 +6,7 @@ import {drizzle} from "drizzle-orm/neon-http";
 
 import* as schema from "./schema";
 
+// @ts-ignore
 const sql = neon(process.env.DATABASE_URL);
 
 export const db = drizzle(sql,{schema});
@@ -21,6 +22,7 @@ export async function getUnreadNotifications(userId: number) {
   
     // Note the order of arguments to sql.query(): first the query, then an array of parameters
     try {
+      // @ts-ignore
       const result = await sql.query(query, [userId]); // Make sure parameters are passed correctly
       return result.rows;
     } catch (error) {
