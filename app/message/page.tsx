@@ -16,7 +16,7 @@ export default function MessagesPage() {
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_AI_API_KEY
+    const API_KEY = process.env.GEMINI_API_KEY
     console.log('API Key:', API_KEY ? 'Present' : 'Missing')
   }, [])
 
@@ -36,11 +36,11 @@ export default function MessagesPage() {
     setInput('')
 
     try {
-      const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_AI_API_KEY
+      const API_KEY = process.env.GEMINI_API_KEY
       if (!API_KEY) throw new Error('API key is missing')
 
       const genAI = new GoogleGenerativeAI(API_KEY)
-      const model = genAI.getGenerativeModel({ model: "gemini-pro" })
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
 
       console.log('Sending message:', newMessage.content)
       const result = await model.generateContent(newMessage.content)

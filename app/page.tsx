@@ -5,7 +5,7 @@ import { ArrowRight, Leaf, Recycle, Users, Coins, MapPin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Poppins } from 'next/font/google'
 import Link from 'next/link'
-
+import Footer from '@/components/footer'
 import { getRecentReports, getAllRewards, getWasteCollectionTasks } from '@/utils/db/actions'
 const poppins = Poppins({ 
   weight: ['300', '400', '600'],
@@ -130,7 +130,9 @@ export default function Home() {
           <ImpactCard title="CO2 Offset" value={`${impactData.co2Offset} kg`} icon={Leaf} />
         </div>
       </section>
+      <Footer>
 
+      </Footer>
    
     </div>
   )
